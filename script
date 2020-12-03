@@ -1,0 +1,29 @@
+import fitz
+
+#this to read the details of the library
+print(fitz.__doc__)
+#add the location and file name
+filename='d:\\SQL_Data Warehouse.pdf'
+#read the PDF
+doc = fitz.open(filename) 
+#get the number of pages
+page_num=doc.pageCount
+#read the metadata of the file
+doc.metadata
+
+doc.getToC()
+
+#read a certain page of the file, this one starts with 0 up to page_num-1
+p=doc.loadPage(0)
+#short version of the above
+page = doc[0]
+
+#case test to find the main questions in the file
+sub1="Q)"
+sub2="Q."
+
+for page in doc:
+    text = page.getText().split('\n')
+    print( "\n".join(s for s in text if sub1.lower() in s.lower() or sub2.lower() in s.lower() ))
+
+
