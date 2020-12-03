@@ -1,2 +1,5 @@
 # PDF_Scraping
-this one is the practice PDF scraping
+practice project to scrape details from a PDF file <br>
+Language: Python 3.8
+<br>
+package :PyMuPDF
